@@ -1,5 +1,5 @@
 import {chrome} from '../../.electron-vendors.cache.json';
-import vue from '@vitejs/plugin-vue';
+import react from '@vitejs/plugin-react';
 import {renderer} from 'unplugin-auto-expose';
 import {join} from 'node:path';
 
@@ -39,8 +39,11 @@ const config = {
   test: {
     environment: 'happy-dom',
   },
+  define: {
+    'process.env': process.env,
+  },
   plugins: [
-    vue(),
+    react(),
     renderer.vite({
       preloadEntry: join(PACKAGE_ROOT, '../preload/src/index.ts'),
     }),

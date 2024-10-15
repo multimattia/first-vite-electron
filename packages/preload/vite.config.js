@@ -13,6 +13,9 @@ const config = {
   mode: process.env.MODE,
   root: PACKAGE_ROOT,
   envDir: PROJECT_ROOT,
+  define: {
+    'process.env': process.env,
+  },
   build: {
     ssr: true,
     sourcemap: 'inline',

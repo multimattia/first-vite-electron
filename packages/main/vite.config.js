@@ -17,6 +17,9 @@ const config = {
       '/@/': join(PACKAGE_ROOT, 'src') + '/',
     },
   },
+  define: {
+    'process.env': process.env,
+  },
   build: {
     ssr: true,
     sourcemap: 'inline',
