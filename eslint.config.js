@@ -40,7 +40,14 @@ export default [
       },
     },
   },
-
+  {
+    files: ['packages/main/**', 'scripts/**', '*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
   {
     files: ['packages/renderer/**'],
     languageOptions: {
@@ -57,7 +64,17 @@ export default [
       globals: {
         ...globals.node,
         ...globals.browser,
+        ...globals.jest,
       },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
     },
   },
 
